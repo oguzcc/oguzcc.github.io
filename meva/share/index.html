@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taqwa - Open in App</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://oguzcc.github.io/web/meva/share/" />
+    <link rel="icon" type="image/png" href="https://oguzcc.github.io/web/assets/images/favicons/meva.png" />
+    <meta name="author" content="Oguz Can" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f6f8" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e1014" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Oguz Can — Apps" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Taqwa - Open in App" />
+    <meta property="og:description" content="Open this content in Taqwa app or download it from your app store." />
+    <meta property="og:url" content="https://oguzcc.github.io/web/meva/share/" />
+    <meta property="og:image" content="https://oguzcc.github.io/web/assets/images/og/meva.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="description" content="Open this content in Taqwa app or download it from your app store.">
+    <link rel="preload" href="../../assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../../assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../../assets/css/site.css" />
+  </head>
+  <body data-app="meva">
+    <main id="main" class="solo">
+      <div class="solo__card">
+        <img class="solo__icon" src="../../assets/images/icons/meva.webp" alt="" width="96" height="96" />
+        <h1 class="logo" data-i18n="name">Taqwa</h1>
+        <p class="solo__text subtitle" id="subtitle" data-i18n="opening">Opening content in Taqwa&hellip;</p>
+
+        <div class="status-text" id="status" role="status">
+            <span class="spinner" aria-hidden="true"></span>
+            <span data-i18n="trying">Trying to open the app&hellip;</span>
+        </div>
+
+        <a class="btn open-btn" id="openBtn" style="display: none;" role="button" tabindex="0" onclick="tryOpenApp()" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); tryOpenApp(); }" data-i18n="open">Open in Taqwa</a>
+
+        <div class="divider" id="divider" data-i18n="or">or download the app</div>
+
+        <div class="store-buttons" id="storeButtons">
+            <a class="btn btn--ghost store-btn" id="appStoreBtn" href="#" target="_blank">
+                <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path></svg>
+                App Store
+            </a>
+            <a class="btn btn--ghost store-btn" id="playStoreBtn" href="#" target="_blank">
+                <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"></path></svg>
+                Google Play
+            </a>
+        </div>
+
+        <a class="landing-link" id="landingLink" href="../index.html" data-i18n="learn">Learn more about Taqwa</a>
+
+        <footer class="solo__foot" data-i18n="rights">&copy; 2026 Taqwa. All rights reserved.</footer>
+      </div>
+    </main>
+
+    <script>
+        // Copy in the visitor's language: Turkish when the browser prefers it, English otherwise.
+        // The URL stays the same either way because the app generates these links.
+        var STRINGS = {
+            en: {
+                title: 'Taqwa - Open in App',
+                name: 'Taqwa',
+                opening: 'Opening content in Taqwa\u2026',
+                trying: 'Trying to open the app\u2026',
+                open: 'Open in Taqwa',
+                or: 'or download the app',
+                learn: 'Learn more about Taqwa',
+                rights: '\u00a9 2026 Taqwa. All rights reserved.',
+                viewContent: 'Download Taqwa to view this content',
+                tap: 'Tap below to download',
+                available: 'Taqwa is available on iOS and Android',
+                journey: 'Download Taqwa for your spiritual journey',
+                desktop: 'Taqwa is available on iOS and Android. Visit the store links below to download.'
+            },
+            tr: {
+                title: 'Takva - Uygulamada Aç',
+                name: 'Takva',
+                opening: 'İçerik Takva\u2019da açılıyor\u2026',
+                trying: 'Uygulama açılmaya çalışılıyor\u2026',
+                open: 'Takva\u2019da aç',
+                or: 'ya da uygulamayı indirin',
+                learn: 'Takva hakkında daha fazla bilgi',
+                rights: '\u00a9 2026 Takva. Tüm hakları saklıdır.',
+                viewContent: 'Bu içeriği görüntülemek için Takva\u2019yı indirin',
+                tap: 'İndirmek için aşağıya dokunun',
+                available: 'Takva iOS ve Android\u2019de',
+                journey: 'Manevi yolculuğunuz için Takva\u2019yı indirin',
+                desktop: 'Takva iOS ve Android\u2019de. İndirmek için aşağıdaki mağaza bağlantılarını kullanın.'
+            }
+        };
+        var preferred = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+        var LANG = /^tr\b/i.test(preferred) ? 'tr' : 'en';
+        var T = STRINGS[LANG];
+
+        if (LANG === 'tr') {
+            document.documentElement.lang = 'tr';
+            document.title = T.title;
+            document.getElementById('landingLink').href = '../index-tr.html';
+            document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                el.textContent = T[el.getAttribute('data-i18n')];
+            });
+        }
+
+        // Parse query parameters
+        const params = new URLSearchParams(window.location.search);
+        const type = params.get('type');   // 'post' or 'prayer'
+        const id = params.get('id');
+
+        // Store URLs (placeholders until app is published)
+        const APP_STORE_URL = 'https://apps.apple.com/us/app/id6740774651';
+        const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=app.ai.taqwa';
+
+        // Platform detection
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isMobile = isAndroid || isIOS;
+
+        // Build deep link
+        function getDeepLink() {
+            if (type && id) {
+                return 'meva://' + type + '/' + id;
+            }
+            return 'meva://';
+        }
+
+        // Set up store buttons
+        function setupStoreButtons() {
+            document.getElementById('appStoreBtn').href = APP_STORE_URL;
+            document.getElementById('playStoreBtn').href = PLAY_STORE_URL;
+        }
+
+        // Show store fallback UI
+        function showStoreFallback() {
+            var status = document.getElementById('status');
+            var storeButtons = document.getElementById('storeButtons');
+            var divider = document.getElementById('divider');
+            var openBtn = document.getElementById('openBtn');
+            var subtitle = document.getElementById('subtitle');
+
+            // Only a shared post or prayer has "this content" to point at
+            if (type && id) {
+                subtitle.textContent = T.viewContent;
+            }
+            openBtn.style.display = 'inline-block';
+            divider.classList.add('visible');
+            storeButtons.classList.add('visible');
+
+            // On mobile: show only the relevant store button
+            if (isIOS) {
+                document.getElementById('playStoreBtn').style.display = 'none';
+                status.textContent = T.tap;
+            } else if (isAndroid) {
+                document.getElementById('appStoreBtn').style.display = 'none';
+                status.textContent = T.tap;
+            } else {
+                // Desktop: show both buttons
+                // Without shared content the subtitle already says this
+                status.textContent = (type && id) ? T.available : '';
+            }
+        }
+
+        // Try to open the app via custom scheme
+        function tryOpenApp() {
+            var deepLink = getDeepLink();
+            window.location.href = deepLink;
+
+            // After timeout: if app didn't open, show store fallback (no auto-redirect)
+            setTimeout(function() {
+                showStoreFallback();
+            }, 2500);
+        }
+
+        // Initialize
+        setupStoreButtons();
+
+        if (isMobile && type && id) {
+            // Mobile with valid params: try to open the app automatically
+            tryOpenApp();
+        } else if (isMobile) {
+            // Mobile without params: show download button for correct platform
+            document.getElementById('status').innerHTML = '';
+            document.getElementById('subtitle').textContent = T.journey;
+            showStoreFallback();
+        } else {
+            // Desktop: show both store links
+            document.getElementById('status').innerHTML = '';
+            document.getElementById('subtitle').textContent = T.desktop;
+            showStoreFallback();
+        }
+    </script>
+  </body>
+</html>
